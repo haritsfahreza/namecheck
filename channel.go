@@ -72,9 +72,6 @@ var Channels = []Channel{{
 	Code: "Twitter",
 	URL:  "https://twitter.com/{name}",
 }, {
-	Code: "LinkedIn",
-	URL:  "https://linkedin.com/company/{name}",
-}, {
 	Code: "Google+",
 	URL:  "https://plus.google.com/+{name}",
 }, {
