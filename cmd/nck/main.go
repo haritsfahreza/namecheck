@@ -50,7 +50,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	channels, duration := namecheck.Check(*flagName)
+	channels, duration := namecheck.Check(*flagName, namecheck.DefaultChannels)
 
 	for _, channel := range channels {
 		if channel.Status == namecheck.StatusAvailable {

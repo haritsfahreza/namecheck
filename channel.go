@@ -22,8 +22,8 @@ type Channel struct {
 	Error  error
 }
 
-//Channels contains list of available channel
-var Channels = []Channel{{
+//DefaultChannels contains list of available channel
+var DefaultChannels = []Channel{{
 	Code: ".com",
 	URL:  "http://{name}.com",
 }, {
