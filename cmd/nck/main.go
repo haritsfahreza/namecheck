@@ -41,22 +41,26 @@ func main() {
 	yellow := color.New(color.FgYellow).PrintfFunc()
 	green := color.New(color.FgGreen).PrintfFunc()
 
-	yellow("Please wait...\n")
+	fmt.Printf("\nChecking ")
+	yellow("%s\n", *flagName)
+	fmt.Printf("Please wait...\n\n")
 
 	if !util.IsConnected() {
 		red("No internet available. Please check your connection.\n")
 		os.Exit(1)
 	}
 
-	channels := namecheck.Check(*flagName)
+	channels, duration := namecheck.Check(*flagName)
 
 	for _, channel := range channels {
 		if channel.Status == namecheck.StatusAvailable {
 			green("%s %s\n", namecheck.StatusAvailable, channel.Code)
 		} else if channel.Status == namecheck.StatusNotAvailable {
 			red("%s %s\n", namecheck.StatusNotAvailable, channel.Code)
-		} else {
+		} else if channel.Status == namecheck.StatusUnknown {
 			yellow("%s %s %s\n", namecheck.StatusUnknown, channel.Code, channel.Error.Error())
 		}
 	}
+
+	fmt.Printf("\nDuration: %fs\n", duration.Seconds())
 }

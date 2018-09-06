@@ -22,26 +22,30 @@ Usage of nck:
 ```
 ```
 $ nck -name uwuh
+
+Checking uwuh
 Please wait...
-V .com
-V .co
-V .co.id
-V .id
-V .info
-V .io
-V .me
-V .name
-X .net
+
 V .org
+V .io
+V .co.id
+V .name
+V .co
 V .us
 V .xyz
-V Facebook
-X YouTube
-V Instagram
+V .info
 X Twitter
-V LinkedIn
 V Google+
 X Github
+X .net
+V Facebook
+V .me
+V .id
+X YouTube
+V .com
+V Instagram
+
+Duration: 2.099445s
 
 ```
 
