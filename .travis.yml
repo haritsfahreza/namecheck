@@ -1,13 +1,46 @@
 language: go
+sudo: false
+matrix:
+  include:
+    # "1.x" always refers to the latest Go version, inc. the patch release.
+    # e.g. "1.x" is 1.11 until 1.11.1 is available.
+    - go: 1.x
+      env: LATEST=true
+    - go: 1.6.x
+    - go: 1.7.x
+    - go: 1.8.x
+    - go: 1.9.x
+    - go: 1.10.x
+    - go: 1.11.x
+    - go: tip
+  allow_failures:
+    - go: tip
 
-go:
-  - "1.6.x"
-  - "1.7.x"
-  - "1.8.x"
-  - "1.9.x"
-  - "1.10.x"
-  - "1.11.x"
+# before_install:
+#   # gox simplifies building for multiple architectures
+#   - go get github.com/mitchellh/gox
 
-script: 
-  - go test ./...
-  - go build
+# install:
+#   - # skip
+
+script:
+  - go get -t -v ./...
+  - diff -u <(echo -n) <(gofmt -d .)
+  - go vet $(go list ./... | grep -v /vendor/)
+  - go test -v -race ./...
+  # - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64" -output="nck.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
+
+# deploy:
+#   provider: releases
+#   skip_cleanup: true
+#   api_key:
+#     # Your *encrypted* GitHub key, as the output of the Travis CI CLI tool.
+#     secure: 
+#   file:
+#   - nck.windows.amd64.exe
+#   - nck.darwin.amd64
+#   - nck.linux.amd64
+#   on:
+#     repo: uwuh/namecheck
+#     tags: true
+#     condition: $LATEST = true
