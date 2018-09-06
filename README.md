@@ -2,18 +2,18 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/uwuh/namecheck.svg?branch=master)](https://travis-ci.org/uwuh/namecheck)
 
-# namecheck
+# namecheck (`nck`)
 Check your name idea availability with CLI
 
 ## Installation
 ```
-$ go get -u github.com/uwuh/namecheck/cmd/namecheck
+$ go get -u github.com/uwuh/namecheck/cmd/nck
 ```
 
 ## Usage
 ```
-$ namecheck help
-Usage of namecheck:
+$ nck help
+Usage of nck:
   -help
         show this message
   -name string
@@ -21,7 +21,7 @@ Usage of namecheck:
 
 ```
 ```
-$ namecheck -name uwuh
+$ nck -name uwuh
 Please wait...
 V .com
 V .co
