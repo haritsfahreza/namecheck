@@ -41,4 +41,3 @@ deploy:
   on:
     repo: uwuh/namecheck
     tags: true
-    condition: $LATEST = true
