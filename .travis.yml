@@ -16,31 +16,29 @@ matrix:
   allow_failures:
     - go: tip
 
-# before_install:
-#   # gox simplifies building for multiple architectures
-#   - go get github.com/mitchellh/gox
+before_install:
+  # gox simplifies building for multiple architectures
+  - go get github.com/mitchellh/gox
 
-# install:
-#   - # skip
+install:
+  - # skip
 
 script:
   - go get -t -v ./...
   - diff -u <(echo -n) <(gofmt -d .)
   - go vet $(go list ./... | grep -v /vendor/)
   - go test -v -race ./...
-  # - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64" -output="nck.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
+  - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64" -output="nck.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
 
-# deploy:
-#   provider: releases
-#   skip_cleanup: true
-#   api_key:
-#     # Your *encrypted* GitHub key, as the output of the Travis CI CLI tool.
-#     secure: 
-#   file:
-#   - nck.windows.amd64.exe
-#   - nck.darwin.amd64
-#   - nck.linux.amd64
-#   on:
-#     repo: uwuh/namecheck
-#     tags: true
-#     condition: $LATEST = true
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key: $GITHUB_OAUTH_TOKEN
+  file:
+  - nck.windows.amd64.exe
+  - nck.darwin.amd64
+  - nck.linux.amd64
+  on:
+    repo: uwuh/namecheck
+    tags: true
+    condition: $LATEST = true
