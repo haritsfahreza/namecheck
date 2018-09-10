@@ -28,16 +28,20 @@ script:
   - diff -u <(echo -n) <(gofmt -d .)
   - go vet $(go list ./... | grep -v /vendor/)
   - go test -v -race ./...
-  - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64" -output="nck.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
+  - if [ "${LATEST}" = "true" ]; then gox -os="windows linux darwin" -arch="amd64 386" ./...; fi
 
 deploy:
   provider: releases
   skip_cleanup: true
   api_key: $GITHUB_OAUTH_TOKEN
   file:
-  - nck.windows.amd64.exe
-  - nck.darwin.amd64
-  - nck.linux.amd64
+  - nck_windows_amd64.exe
+  - nck_darwin_amd64
+  - nck_linux_amd64
+  - nck_windows_386.exe
+  - nck_darwin_386
+  - nck_linux_386
   on:
     repo: uwuh/namecheck
     tags: true
+    condition: $LATEST = true
