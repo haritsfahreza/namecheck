@@ -26,6 +26,11 @@ $ nck -name uwuh
 Checking uwuh
 Please wait...
 
+Status
+V Available
+X Not Available
+? Unknown (e.g. Timeout)
+
 V .org
 V .io
 V .co.id
