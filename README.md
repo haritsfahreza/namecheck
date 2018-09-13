@@ -6,12 +6,12 @@
 Check your name idea availability with CLI
 
 ## Installation
-```
+```sh
 $ go get -u github.com/uwuh/namecheck/cmd/nck
 ```
 
 ## Usage
-```
+```sh
 $ nck help
 Usage of nck:
   -help
@@ -20,7 +20,7 @@ Usage of nck:
         name idea that you want to check
 
 ```
-```
+```sh
 $ nck -name uwuh
 
 Checking uwuh
