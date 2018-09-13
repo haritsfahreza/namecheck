@@ -52,6 +52,11 @@ func main() {
 
 	channels, duration := namecheck.Check(*flagName, namecheck.DefaultChannels)
 
+	fmt.Printf("Status:\n")
+	green("%s Available\n", namecheck.StatusAvailable)
+	red("%s Not Available\n", namecheck.StatusNotAvailable)
+	yellow("%s Unknown (e.g. Timeout)\n\n", namecheck.StatusUnknown)
+
 	for _, channel := range channels {
 		if channel.Status == namecheck.StatusAvailable {
 			green("%s %s\n", namecheck.StatusAvailable, channel.Code)
