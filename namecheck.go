@@ -9,7 +9,7 @@ import (
 	"github.com/uwuh/namecheck/util"
 )
 
-func check(name, URL string) (string, error) {
+func check(name, URL string, ct ChannelType) (ChannelStatus, error) {
 	resp, err := util.HTTPClient.Get(strings.Replace(URL, "{name}", name, 1))
 	if err != nil {
 		if strings.Contains(err.Error(), "no such host") {
@@ -36,7 +36,7 @@ func Check(name string, baseChannel []Channel) (channels []Channel, duration tim
 	for _, channel := range baseChannel {
 		go func(ch Channel) {
 			newChannel := ch
-			newChannel.Status, newChannel.Error = check(name, ch.URL)
+			newChannel.Status, newChannel.Error = check(name, ch.URL, ch.Type)
 			resultCh <- newChannel
 		}(channel)
 	}

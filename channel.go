@@ -1,24 +1,37 @@
 package namecheck
 
+//ChannelType value
+type ChannelType string
+
+//ChannelStatus value
+type ChannelStatus string
+
 const (
 	//StatusAvailable represents status when
 	//the name is available on a channel
-	StatusAvailable string = "V"
+	StatusAvailable ChannelStatus = "V"
 
 	//StatusNotAvailable represents status when
 	//the name is not available on a channel
-	StatusNotAvailable string = "X"
+	StatusNotAvailable ChannelStatus = "X"
 
 	//StatusUnknown represents status when there is
 	//an unknown problem when checking the availability of the name
-	StatusUnknown string = "?"
+	StatusUnknown ChannelStatus = "?"
+
+	//TypeDomain represents DNS channel type
+	TypeDomain ChannelType = "domain"
+
+	//TypeSocial represents Social media channel type
+	TypeSocial ChannelType = "social"
 )
 
 //Channel represents channel that will be checked
 type Channel struct {
 	Code   string
 	URL    string
-	Status string
+	Type   ChannelType
+	Status ChannelStatus
 	Error  error
 }
 
@@ -26,55 +39,73 @@ type Channel struct {
 var DefaultChannels = []Channel{{
 	Code: ".com",
 	URL:  "http://{name}.com",
+	Type: TypeDomain,
 }, {
 	Code: ".co",
 	URL:  "http://{name}.co",
+	Type: TypeDomain,
 }, {
 	Code: ".co.id",
 	URL:  "http://{name}.co.id",
+	Type: TypeDomain,
 }, {
 	Code: ".id",
 	URL:  "http://{name}.id",
+	Type: TypeDomain,
 }, {
 	Code: ".info",
 	URL:  "http://{name}.info",
+	Type: TypeDomain,
 }, {
 	Code: ".io",
 	URL:  "http://{name}.io",
+	Type: TypeDomain,
 }, {
 	Code: ".me",
 	URL:  "http://{name}.me",
+	Type: TypeDomain,
 }, {
 	Code: ".name",
 	URL:  "http://{name}.name",
+	Type: TypeDomain,
 }, {
 	Code: ".net",
 	URL:  "http://{name}.net",
+	Type: TypeDomain,
 }, {
 	Code: ".org",
 	URL:  "http://{name}.org",
+	Type: TypeDomain,
 }, {
 	Code: ".us",
 	URL:  "http://{name}.us",
+	Type: TypeDomain,
 }, {
 	Code: ".xyz",
 	URL:  "http://{name}.xyz",
+	Type: TypeDomain,
 }, {
 	Code: "Facebook",
 	URL:  "https://facebook.com/{name}",
+	Type: TypeSocial,
 }, {
 	Code: "YouTube",
 	URL:  "https://youtube.com/{name}",
+	Type: TypeSocial,
 }, {
 	Code: "Instagram",
 	URL:  "https://instagram.com/{name}",
+	Type: TypeSocial,
 }, {
 	Code: "Twitter",
 	URL:  "https://twitter.com/{name}",
+	Type: TypeSocial,
 }, {
 	Code: "Google+",
 	URL:  "https://plus.google.com/+{name}",
+	Type: TypeSocial,
 }, {
 	Code: "Github",
 	URL:  "https://github.com/{name}",
+	Type: TypeSocial,
 }}
