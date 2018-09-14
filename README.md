@@ -1,7 +1,7 @@
 [![GoDoc](https://godoc.org/github.com/uwuh/namecheck?status.svg)](https://godoc.org/github.com/uwuh/namecheck)
 [![Go Report Card](https://goreportcard.com/badge/github.com/uwuh/namecheck)](https://goreportcard.com/report/github.com/uwuh/namecheck)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/uwuh/namecheck.svg?branch=master)](https://travis-ci.org/uwuh/namecheck)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 # namecheck (`nck`)
 Check your name idea availability with CLI
