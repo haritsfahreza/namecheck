@@ -6,7 +6,6 @@ matrix:
     # e.g. "1.x" is 1.11 until 1.11.1 is available.
     - go: 1.x
       env: LATEST=true
-    - go: 1.6.x
     - go: 1.7.x
     - go: 1.8.x
     - go: 1.9.x
