@@ -33,9 +33,20 @@
   pruneopts = "UT"
   revision = "ebe1bf3edb3325c393447059974de898d5133eb8"
 
+[[projects]]
+  branch = "v1"
+  digest = "1:23fc86a644517c24115801c487921dbca64199a17b4c4bd057dcd97e59605684"
+  name = "gopkg.in/jarcoal/httpmock.v1"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "8007e27cdb3239fcfc95c1274d7d8cbcc68b7d52"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/fatih/color"]
+  input-imports = [
+    "github.com/fatih/color",
+    "gopkg.in/jarcoal/httpmock.v1",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

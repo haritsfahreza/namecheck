@@ -29,6 +29,10 @@
   name = "github.com/fatih/color"
   version = "1.7.0"
 
+[[constraint]]
+  branch = "v1"
+  name = "gopkg.in/jarcoal/httpmock.v1"
+
 [prune]
   go-tests = true
   unused-packages = true
