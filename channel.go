@@ -117,10 +117,6 @@ var DefaultChannels = []Channel{{
 	URL:  "https://twitter.com/{name}",
 	Type: TypeSocial,
 }, {
-	Code: "Google+",
-	URL:  "https://plus.google.com/+{name}",
-	Type: TypeSocial,
-}, {
 	Code: "Github",
 	URL:  "https://github.com/{name}",
 	Type: TypeSocial,
