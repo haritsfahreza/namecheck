@@ -13,7 +13,7 @@ $ go get -u github.com/uwuh/namecheck/cmd/nck
 
 ## Usage
 ```sh
-$ nck help
+$ nck help//Happy coding
 Usage of nck:
   -help
         show this message
