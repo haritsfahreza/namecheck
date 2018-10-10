@@ -37,6 +37,14 @@ type Channel struct {
 
 //DefaultChannels contains list of available channel
 var DefaultChannels = []Channel{{
+	Code: ".biz",
+	URL:  "http://{name}.biz",
+	Type: TypeDomain,
+}, {
+	Code: ".cc",
+	URL:  "http://{name}.cc",
+	Type: TypeDomain,
+}, {
 	Code: ".com",
 	URL:  "http://{name}.com",
 	Type: TypeDomain,
@@ -53,12 +61,20 @@ var DefaultChannels = []Channel{{
 	URL:  "http://{name}.id",
 	Type: TypeDomain,
 }, {
+	Code: ".in",
+	URL:  "http://{name}.info",
+	Type: TypeDomain,
+}, {
 	Code: ".info",
 	URL:  "http://{name}.info",
 	Type: TypeDomain,
 }, {
 	Code: ".io",
 	URL:  "http://{name}.io",
+	Type: TypeDomain,
+}, {
+	Code: ".ly",
+	URL:  "http://{name}.ly",
 	Type: TypeDomain,
 }, {
 	Code: ".me",
@@ -107,5 +123,13 @@ var DefaultChannels = []Channel{{
 }, {
 	Code: "Github",
 	URL:  "https://github.com/{name}",
+	Type: TypeSocial,
+}, {
+	Code: "Gitlab",
+	URL:  "https://gitlab.com/{name}",
+	Type: TypeSocial,
+}, {
+	Code: "Bitbucket",
+	URL:  "https://bitbucket.org/{name}",
 	Type: TypeSocial,
 }}
