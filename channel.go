@@ -22,7 +22,7 @@ const (
 	//TypeDomain represents DNS channel type
 	TypeDomain ChannelType = "domain"
 
-	//TypeSocial represents Social media channel type
+	//TypeSocial represents Social media channel type//super coding
 	TypeSocial ChannelType = "social"
 )
 
