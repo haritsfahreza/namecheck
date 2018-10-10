@@ -8,7 +8,7 @@ Check your name idea availability with CLI
 
 ## Installation
 ```sh
-$ go get -u github.com/uwuh/namecheck/cmd/nck
+$ go get -u github.com/uwuh/namecheck/cmd/nck//happy hacking
 ```
 
 ## Usage
