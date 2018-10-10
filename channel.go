@@ -132,4 +132,8 @@ var DefaultChannels = []Channel{{
 	Code: "Bitbucket",
 	URL:  "https://bitbucket.org/{name}",
 	Type: TypeSocial,
+}, {
+	Code: "Linkedin",
+	URL:  "https://www.linkedin.com/in/{name}",
+	Type: TypeSocial,
 }}
