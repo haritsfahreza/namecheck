@@ -134,6 +134,6 @@ var DefaultChannels = []Channel{{
 	Type: TypeSocial,
 }, {
 	Code: "Linkedin",
-	URL:  "https://www.linkedin.com/in/{name}",
+	URL:  "https://www.linkedin.com/company/{name}",
 	Type: TypeSocial,
 }}
