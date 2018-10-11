@@ -132,4 +132,20 @@ var DefaultChannels = []Channel{{
 	Code: "Reddit",
 	URL:  "https://www.reddit.com/user/{name}",
 	Type: TypeSocial,
+}, {
+	Code: "Medium",
+	URL:  "https://www.medium.com/@{name}",
+	Type: TypeSocial,
+}, {
+	Code: "Vimeo",
+	URL:  "https://vimeo.com/{name}",
+	Type: TypeSocial,
+}, {
+	Code: "Artstation",
+	URL:  "https://www.artstation.com/{name}",
+	Type: TypeSocial,
+}, {
+	Code: "Tumblr",
+	URL:  "https://{name}.tumblr.com",
+	Type: TypeSocial,
 }}
