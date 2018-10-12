@@ -55,5 +55,12 @@ Duration: 2.099445s
 
 ```
 
+# Running in Docker
+```
+docker build -t namecheck .
+
+docker run -it namecheck -name foo
+```
+
 ## License
 See [LICENSE](LICENSE)
