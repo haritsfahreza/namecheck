@@ -148,4 +148,8 @@ var DefaultChannels = []Channel{{
 	Code: "Tumblr",
 	URL:  "https://{name}.tumblr.com",
 	Type: TypeSocial,
+}, {
+	Code: "Keybase.io",
+	URL:  "https://keybase.io/{name}",
+	Type: TypeSocial,
 }}
