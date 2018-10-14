@@ -152,4 +152,8 @@ var DefaultChannels = []Channel{{
 	Code: "Keybase.io",
 	URL:  "https://keybase.io/{name}",
 	Type: TypeSocial,
+}, {
+	Code: "Vkontakte",
+	URL:  "https://vk.com/{name}",
+	Type: TypeSocial,
 }}
