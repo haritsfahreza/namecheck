@@ -157,6 +157,10 @@ var DefaultChannels = []Channel{{
 	URL:  "https://vk.com/{name}",
 	Type: TypeSocial,
 }, {
+	Code: "Pinterest",
+	URL:  "https://pinterest.com/{name}",
+	Type: TypeSocial,
+}, {
 	Code: "Slack",
 	URL:  "https://{name}.slack.com",
 	Type: TypeSocial,
