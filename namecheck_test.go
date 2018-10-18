@@ -15,7 +15,7 @@ func init() {
 func TestCheck(t *testing.T) {
 	defer httpmock.Deactivate()
 
-	mockChannels := []namecheck.Channel{{
+	mockChannels := []*namecheck.Channel{{
 		Code: ".com",
 		URL:  "http://{name}.com",
 		Type: namecheck.TypeDomain,
@@ -44,7 +44,7 @@ func TestCheck(t *testing.T) {
 	httpmock.RegisterResponder("GET", "https://timeout.com/test", httpmock.NewErrorResponder(errors.New("Timeout")))
 	httpmock.RegisterResponder("GET", "https://error.com/test", httpmock.NewErrorResponder(errors.New("test")))
 
-	results, _ := namecheck.Check("test", mockChannels)
+	results, _ := namecheck.Check(nil, "test", mockChannels)
 
 	if len(results) != len(mockChannels) {
 		t.Errorf("Total results must be equal with channels. expected: %d actual: %d", len(mockChannels), len(results))

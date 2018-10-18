@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"os"
@@ -21,14 +22,25 @@ func init() {
 }
 
 func main() {
+	ctx := context.Background()
 	var (
-		flagName = flag.String("name", "", "your name idea that you want to check")
-		flagHelp = flag.Bool("help", false, "show this message")
+		flagName        = flag.String("name", "", "your name idea that you want to check")
+		flagChannelCode = flag.String("code", "", "specific channel code that you want to check")
+		flagHelp        = flag.Bool("help", false, "show this message")
+		flagChannelList = flag.Bool("list", false, "show available channel list")
 	)
 
 	flag.Parse()
 	if len(flag.Args()) > 0 || *flagHelp {
 		flag.Usage()
+		os.Exit(0)
+	}
+
+	if len(flag.Args()) > 0 || *flagChannelList {
+		fmt.Printf("\nList of available channel codes:\n\n")
+		for _, channel := range namecheck.DefaultChannels {
+			fmt.Printf("   %s\n", channel.Code)
+		}
 		os.Exit(0)
 	}
 
@@ -41,6 +53,16 @@ func main() {
 	yellow := color.New(color.FgYellow).PrintfFunc()
 	green := color.New(color.FgGreen).PrintfFunc()
 
+	channels := namecheck.DefaultChannels
+	if *flagChannelCode != "" {
+		ch, err := namecheck.FindChannelByCode(ctx, *flagChannelCode)
+		if err != nil {
+			red(err.Error())
+			os.Exit(1)
+		}
+		channels = []*namecheck.Channel{ch}
+	}
+
 	fmt.Printf("\nChecking ")
 	yellow("%s\n", *flagName)
 	fmt.Printf("Please wait...\n\n")
@@ -50,7 +72,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	channels, duration := namecheck.Check(*flagName, namecheck.DefaultChannels)
+	channels, duration := namecheck.Check(ctx, *flagName, channels)
 
 	fmt.Printf("Status:\n")
 	green("%s Available\n", namecheck.StatusAvailable)
