@@ -15,10 +15,14 @@ $ go get -u github.com/uwuh/namecheck/cmd/nck
 ```sh
 $ nck help
 Usage of nck:
+  -code string
+        specific channel code that you want to check
   -help
         show this message
+  -list
+        show available channel code list
   -name string
-        name idea that you want to check
+        your name idea that you want to check
 
 ```
 ```sh
