@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"os"
@@ -21,6 +22,7 @@ func init() {
 }
 
 func main() {
+	ctx := context.Background()
 	var (
 		flagName = flag.String("name", "", "your name idea that you want to check")
 		flagHelp = flag.Bool("help", false, "show this message")
@@ -50,7 +52,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	channels, duration := namecheck.Check(*flagName, namecheck.DefaultChannels)
+	channels, duration := namecheck.Check(ctx, *flagName, channels)
 
 	fmt.Printf("Status:\n")
 	green("%s Available\n", namecheck.StatusAvailable)
