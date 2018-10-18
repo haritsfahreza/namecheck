@@ -1,5 +1,10 @@
 package namecheck
 
+import (
+	"context"
+	"errors"
+)
+
 //ChannelType value
 type ChannelType string
 
@@ -165,3 +170,24 @@ var DefaultChannels = []*Channel{{
 	URL:  "https://{name}.slack.com",
 	Type: TypeSocial,
 }}
+
+//FindChannelByCode is used to find channel by its channel code
+func FindChannelByCode(ctx context.Context, code string) (*Channel, error) {
+	for _, channel := range DefaultChannels {
+		if channel.Code == code {
+			return channel, nil
+		}
+	}
+	return nil, errors.New("no channel found")
+}
+
+//FindChannelsByType is used to find channels by its channel type
+func FindChannelsByType(ctx context.Context, chType ChannelType) []*Channel {
+	result := []*Channel{}
+	for _, channel := range DefaultChannels {
+		if channel.Type == chType {
+			result = append(result, channel)
+		}
+	}
+	return result
+}
