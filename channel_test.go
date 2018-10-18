@@ -7,23 +7,27 @@ import (
 )
 
 func TestFindChannelByCode(t *testing.T) {
-	channel, err := namecheck.FindChannelByCode(nil, ".com")
+	t.Run("success", func(t *testing.T) {
+		channel, err := namecheck.FindChannelByCode(nil, ".com")
 
-	if err != nil {
-		t.Errorf("Error must be nil. expected: %s actual: %s", "nil", err.Error())
-		return
-	}
+		if err != nil {
+			t.Errorf("Error must be nil. expected: %s actual: %s", "nil", err.Error())
+			return
+		}
 
-	if channel.Code != ".com" {
-		t.Errorf("Invalid channel code. expected: %s actual: %s", ".com", channel.Code)
-		return
-	}
+		if channel.Code != ".com" {
+			t.Errorf("Invalid channel code. expected: %s actual: %s", ".com", channel.Code)
+			return
+		}
+	})
 
-	channel, err = namecheck.FindChannelByCode(nil, "invalidcode")
-	if err == nil {
-		t.Errorf("Error must not be nil. expected: %s actual: %v", "no channel found", err)
-		return
-	}
+	t.Run("failed invalid code", func(t *testing.T) {
+		_, err := namecheck.FindChannelByCode(nil, "invalidcode")
+		if err == nil {
+			t.Errorf("Error must not be nil. expected: %s actual: %v", "no channel found", err)
+			return
+		}
+	})
 }
 
 func TestFindChannelsByType(t *testing.T) {
