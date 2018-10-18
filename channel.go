@@ -178,7 +178,7 @@ func FindChannelByCode(ctx context.Context, code string) (*Channel, error) {
 			return channel, nil
 		}
 	}
-	return nil, errors.New("no channel found")
+	return nil, errors.New("No channel found. Please use the available channel code")
 }
 
 //FindChannelsByType is used to find channels by its channel type
