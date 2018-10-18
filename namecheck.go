@@ -29,12 +29,12 @@ func check(name, URL string, ct ChannelType) (ChannelStatus, error) {
 }
 
 //Check name availability on all channel
-func Check(name string, baseChannel []Channel) (channels []Channel, duration time.Duration) {
+func Check(name string, baseChannel []*Channel) (channels []*Channel, duration time.Duration) {
 	start := time.Now()
 	length := len(baseChannel)
-	resultCh := make(chan Channel, length)
+	resultCh := make(chan *Channel, length)
 	for _, channel := range baseChannel {
-		go func(ch Channel) {
+		go func(ch *Channel) {
 			newChannel := ch
 			newChannel.Status, newChannel.Error = check(name, ch.URL, ch.Type)
 			resultCh <- newChannel

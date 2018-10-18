@@ -15,7 +15,7 @@ func init() {
 func TestCheck(t *testing.T) {
 	defer httpmock.Deactivate()
 
-	mockChannels := []namecheck.Channel{{
+	mockChannels := []*namecheck.Channel{{
 		Code: ".com",
 		URL:  "http://{name}.com",
 		Type: namecheck.TypeDomain,

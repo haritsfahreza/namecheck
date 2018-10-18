@@ -36,7 +36,7 @@ type Channel struct {
 }
 
 //DefaultChannels contains list of available channel
-var DefaultChannels = []Channel{{
+var DefaultChannels = []*Channel{{
 	Code: ".biz",
 	URL:  "http://{name}.biz",
 	Type: TypeDomain,
