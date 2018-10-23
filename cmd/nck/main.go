@@ -24,8 +24,9 @@ func init() {
 func main() {
 	ctx := context.Background()
 	var (
-		flagName        = flag.String("name", "", "your name idea that you want to check")
-		flagChannelCode = flag.String("code", "", "specific channel code that you want to check")
+		flagName        = flag.String("name", "", "your name idea")
+		flagChannelCode = flag.String("code", "", "specify channel code")
+		flagChannelType = flag.String("type", "", "specify channel type ('domain' & 'social')")
 		flagHelp        = flag.Bool("help", false, "show this message")
 		flagChannelList = flag.Bool("list", false, "show available channel list")
 	)
@@ -61,6 +62,17 @@ func main() {
 			os.Exit(1)
 		}
 		channels = []*namecheck.Channel{ch}
+	}
+
+	if *flagChannelType != "" {
+		if *flagChannelType == "domain" {
+			channels = namecheck.FindChannelsByType(ctx, namecheck.TypeDomain)
+		} else if *flagChannelType == "social" {
+			channels = namecheck.FindChannelsByType(ctx, namecheck.TypeSocial)
+		} else {
+			red("No channel type found. Please use the available channel type")
+			os.Exit(1)
+		}
 	}
 
 	fmt.Printf("\nChecking ")
