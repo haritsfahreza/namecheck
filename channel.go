@@ -169,6 +169,10 @@ var DefaultChannels = []*Channel{{
 	Code: "Slack",
 	URL:  "https://{name}.slack.com",
 	Type: TypeSocial,
+},{
+	Code: "Dev.to",
+	URL:  "https://dev.to/{name}",
+	Type: TypeSocial,
 }}
 
 //FindChannelByCode is used to find channel by its channel code
