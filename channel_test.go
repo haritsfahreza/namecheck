@@ -3,7 +3,7 @@ package namecheck_test
 import (
 	"testing"
 
-	"github.com/uwuh/namecheck"
+	"github.com/haritsfahreza/namecheck"
 )
 
 func TestFindChannelByCode(t *testing.T) {

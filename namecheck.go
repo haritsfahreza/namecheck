@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/uwuh/namecheck/util"
+	"github.com/haritsfahreza/namecheck/util"
 )
 
 func check(ctx context.Context, name, URL string, ct ChannelType) (ChannelStatus, error) {

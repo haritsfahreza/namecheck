@@ -3,7 +3,7 @@ package util_test
 import (
 	"testing"
 
-	"github.com/uwuh/namecheck/util"
+	"github.com/haritsfahreza/namecheck/util"
 	httpmock "gopkg.in/jarcoal/httpmock.v1"
 )
 

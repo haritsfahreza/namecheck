@@ -7,8 +7,8 @@ import (
 	"os"
 
 	"github.com/fatih/color"
-	"github.com/uwuh/namecheck"
-	"github.com/uwuh/namecheck/util"
+	"github.com/haritsfahreza/namecheck"
+	"github.com/haritsfahreza/namecheck/util"
 )
 
 func usage() {

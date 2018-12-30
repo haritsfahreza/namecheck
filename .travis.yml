@@ -44,6 +44,6 @@ deploy:
   - nck_darwin_386
   - nck_linux_386
   on:
-    repo: uwuh/namecheck
+    repo: haritsfahreza/namecheck
     tags: true
     condition: $LATEST = true

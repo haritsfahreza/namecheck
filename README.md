@@ -1,7 +1,7 @@
-[![GoDoc](https://godoc.org/github.com/uwuh/namecheck?status.svg)](https://godoc.org/github.com/uwuh/namecheck)
-[![Build Status](https://travis-ci.org/uwuh/namecheck.svg?branch=master)](https://travis-ci.org/uwuh/namecheck)
-[![codecov](https://codecov.io/gh/uwuh/namecheck/branch/master/graph/badge.svg)](https://codecov.io/gh/uwuh/namecheck)
-[![Go Report Card](https://goreportcard.com/badge/github.com/uwuh/namecheck)](https://goreportcard.com/report/github.com/uwuh/namecheck)
+[![GoDoc](https://godoc.org/github.com/haritsfahreza/namecheck?status.svg)](https://godoc.org/github.com/haritsfahreza/namecheck)
+[![Build Status](https://travis-ci.org/haritsfahreza/namecheck.svg?branch=master)](https://travis-ci.org/haritsfahreza/namecheck)
+[![codecov](https://codecov.io/gh/haritsfahreza/namecheck/branch/master/graph/badge.svg)](https://codecov.io/gh/haritsfahreza/namecheck)
+[![Go Report Card](https://goreportcard.com/badge/github.com/haritsfahreza/namecheck)](https://goreportcard.com/report/github.com/haritsfahreza/namecheck)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 # namecheck (`nck`)
@@ -9,7 +9,7 @@ Check your name idea availability with CLI
 
 ## Installation
 ```sh
-$ go get -u github.com/uwuh/namecheck/cmd/nck
+$ go get -u github.com/haritsfahreza/namecheck/cmd/nck
 ```
 
 ## Usage
@@ -27,9 +27,9 @@ Usage of nck:
 
 ```
 ```sh
-$ nck -name uwuh
+$ nck -name haritsfahreza
 
-Checking uwuh
+Checking haritsfahreza
 Please wait...
 
 Status

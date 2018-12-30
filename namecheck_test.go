@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/uwuh/namecheck"
+	"github.com/haritsfahreza/namecheck"
 	httpmock "gopkg.in/jarcoal/httpmock.v1"
 )
 
